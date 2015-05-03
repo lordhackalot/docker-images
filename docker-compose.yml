@@ -1,0 +1,11 @@
+www:
+  build: .
+  ports:
+    - "8000:80"
+  links:
+    - database
+database:
+  image: "mysql:5"
+  environment:
+    MYSQL_ROOT_PASSWORD: phpapptest
+    MYSQL_DATABASE: phpapp
