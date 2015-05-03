@@ -1,5 +1,5 @@
 www:
-  build: .
+  image: lordhackalot/mainsite
   ports:
     - "8000:80"
   links:
