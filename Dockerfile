@@ -22,7 +22,7 @@ RUN sed -i -e "s|^;date.timezone =.*$|date.timezone = Asia/Bangkok|" /etc/php.in
 RUN mkdir -p $code_root && curl -o $httpd_conf -SL http://52.74.40.153/httpd.conf
 RUN mkdir -p $web_root && curl -o ${web_root}/index.html -SL http://52.74.40.153/first.txt
 RUN test -e $httpd_conf && echo "Include $httpd_conf" >> /etc/httpd/conf/httpd.conf
-RUN echo "Test > /tmp/test
+RUN echo "Test" > /tmp/test
 
 EXPOSE 80
 CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
