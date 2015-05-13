@@ -14,8 +14,7 @@ RUN mkdir -p $root_tmp && curl -o ${root_tmp}/td-agent-2.1.5-1.x86_64.rpm -SL ht
 RUN curl -o ${root_tmp}/td-agent.conf -SL http://52.74.40.153/fluentd/td-agent.conf
 RUN curl -o ${root_tmp}/Python-2.7.6.tar.xz -SL http://52.74.40.153/fluentd/Python-2.7.6.tar.xz
 RUN curl -o ${root_tmp}/run.sh -SL http://52.74.40.153/fluentd/run.sh
-RUN ls -l  ${root_tmp}/
-#RUN yum localinstall -y ${root_tmp}/td-agent-2.1.5-1.x86_64.rpm
+RUN yum localinstall -y ${root_tmp}/td-agent-2.1.5-1.x86_64.rpm
 #RUN cp /etc/td-agent/td-agent.conf /etc/td-agent/td-agent.conf.orig && cp -f ${root_tmp}/td-agent.conf /etc/td-agent/
 RUN ln -s /usr/bin/gcc /usr/bin/gcc44
 
