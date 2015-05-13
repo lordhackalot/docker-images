@@ -1,0 +1,5 @@
+worker:
+  image: lordhackalot/aws-fluentd
+  ports:
+    - "24224:24224"
+
