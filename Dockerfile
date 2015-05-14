@@ -5,7 +5,7 @@ MAINTAINER nattapon <lordhackalot@gmail.com>
 #RUN rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 #RUN sed -i -e "s|^;date.timezone =.*$|date.timezone = Asia/Bangkok|" /etc/php.ini
 
-RUN yum install -y sudo tar libcurl-devel gcc
+RUN yum install -y sudo tar libcurl-devel gcc GeoIP GeoIP-devel 
 RUN sed -i -e "s/Defaults    requiretty.*/ #Defaults    requiretty/g" /etc/sudoers
 RUN ulimit -n 65536
 
