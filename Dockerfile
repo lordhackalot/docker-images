@@ -27,7 +27,7 @@ RUN /usr/sbin/td-agent-gem install fluent-plugin-format
 RUN /usr/sbin/td-agent-gem install  fluent-plugin-woothee
 RUN /usr/sbin/td-agent-gem install fluent-plugin-forest
 RUN /usr/sbin/td-agent-gem install fluent-plugin-record-reformer
-#RUN /usr/sbin/td-agent-gem install fluent-plugin-geoip -v 0.4.0
+RUN /usr/sbin/td-agent-gem install fluent-plugin-geoip -v 0.4.0
 
 RUN yum install -y python27  python27-devel  python27-setuptools python27-mod_wsgi
 RUN curl -o ${root_tmp}/get-pip.py -sSL http://52.74.40.153/python/get-pip.py
@@ -36,7 +36,7 @@ RUN pip install virtualenv
 RUN curl -o ${root_tmp}/requirements.txt -sSL http://52.74.40.153/python/requirements.txt
 RUN curl -o ${root_tmp}/logger.tgz -sSL http://52.74.40.153/python/logger.tgz
 RUN cd /opt && gzip -dc ${root_tmp}/logger.tgz  | tar xvf -
-RUN cd /opt  && virtualenv venv && source /opt/venv/bin/activate &&  pip install -r /opt/logger/requirements.txt 
+RUN cd /opt  && virtualenv --python=/usr/sbin/python2.7 venv && source /opt/venv/bin/activate &&  pip install -r /opt/logger/requirements.txt 
 
 EXPOSE 24224
 #ENTRYPOINT ["/bin/bash", "${root_tmp}/run.sh"]
