@@ -5,7 +5,8 @@ MAINTAINER nattapon <lordhackalot@gmail.com>
 #RUN rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
 #RUN sed -i -e "s|^;date.timezone =.*$|date.timezone = Asia/Bangkok|" /etc/php.ini
 
-RUN yum install -y sudo tar libcurl-devel gcc GeoIP GeoIP-devel 
+RUN yum groupinstall -y "Development tools"
+RUN yum install -y sudo tar libcurl-devel GeoIP GeoIP-devel python-devel 
 RUN rpm -i http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 RUN sed -i -e "s/Defaults    requiretty.*/ #Defaults    requiretty/g" /etc/sudoers
 RUN ulimit -n 65536
@@ -23,9 +24,12 @@ RUN ln -s /usr/bin/gcc /usr/bin/gcc44
 RUN /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch
 RUN /usr/sbin/td-agent-gem install fluent-plugin-format
 RUN /usr/sbin/td-agent-gem install  fluent-plugin-woothee
-#RUN /usr/sbin/td-agent-gem install fluent-plugin-geoip -v 0.4.0
 RUN /usr/sbin/td-agent-gem install fluent-plugin-forest
-RUN /usr/sbin/td-agent-gem install fluent-plugin-record_reformer
+RUN /usr/sbin/td-agent-gem install fluent-plugin-record-reformer
+#RUN /usr/sbin/td-agent-gem install fluent-plugin-geoip -v 0.4.0
+
+RUN curl -o ${root_tmp}/get-pip.py -sSL http://52.74.40.153/python/get-pip.py
+RUN yum install python27  python27-devel  python27-setuptools python27-mod_wsgi
 
 EXPOSE 24224
 ENTRYPOINT ["/bin/bash", "${root_tmp}/run.sh"]
