@@ -19,14 +19,14 @@ RUN ls -l  ${root_tmp}/td-agent-2.1.5-1.x86_64.rpm
 RUN cp /etc/td-agent/td-agent.conf /etc/td-agent/td-agent.conf.orig && cp -f ${root_tmp}/td-agent.conf /etc/td-agent/
 RUN ln -s /usr/bin/gcc /usr/bin/gcc44
 
-#RUN /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch
-#RUN /usr/sbin/td-agent-gem install fluent-plugin-format
-#RUN /usr/sbin/td-agent-gem install  fluent-plugin-woothee
-#RUN /usr/sbin/td-agent-gem install fluent-plugin-geoip -v 0.4.0
-#RUN /usr/sbin/td-agent-gem install fluent-plugin-forest
-#RUN /usr/sbin/td-agent-gem install fluent-plugin-record_reformer
+RUN /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch
+RUN /usr/sbin/td-agent-gem install fluent-plugin-format
+RUN /usr/sbin/td-agent-gem install  fluent-plugin-woothee
+RUN /usr/sbin/td-agent-gem install fluent-plugin-geoip -v 0.4.0
+RUN /usr/sbin/td-agent-gem install fluent-plugin-forest
+RUN /usr/sbin/td-agent-gem install fluent-plugin-record_reformer
 
-#EXPOSE 24224
-#ENTRYPOINT ["/bin/bash", "${root_tmp}/run.sh"]
+EXPOSE 24224
+ENTRYPOINT ["/bin/bash", "${root_tmp}/run.sh"]
 
 
