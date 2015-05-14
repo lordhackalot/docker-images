@@ -7,7 +7,7 @@ MAINTAINER nattapon <lordhackalot@gmail.com>
 
 #RUN rpm -i http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-11.ius.centos6.noarch.rpm
 RUN rpm -i http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-RUN rpm -i http://52.74.40.153/ius-release-1.0-11.ius.centos6.noarch.rpm
+RUN rpm -i http://52.74.40.153/python/ius-release-1.0-11.ius.centos6.noarch.rpm
 RUN yum groupinstall -y "Development tools"
 RUN yum install -y sudo tar libcurl-devel GeoIP GeoIP-devel python-devel postgresql-devel
 RUN sed -i -e "s/Defaults    requiretty.*/ #Defaults    requiretty/g" /etc/sudoers
