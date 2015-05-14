@@ -23,7 +23,7 @@ RUN ln -s /usr/bin/gcc /usr/bin/gcc44
 RUN /usr/sbin/td-agent-gem install fluent-plugin-elasticsearch
 RUN /usr/sbin/td-agent-gem install fluent-plugin-format
 RUN /usr/sbin/td-agent-gem install  fluent-plugin-woothee
-RUN /usr/sbin/td-agent-gem install fluent-plugin-geoip -v 0.4.0
+#RUN /usr/sbin/td-agent-gem install fluent-plugin-geoip -v 0.4.0
 RUN /usr/sbin/td-agent-gem install fluent-plugin-forest
 RUN /usr/sbin/td-agent-gem install fluent-plugin-record_reformer
 
