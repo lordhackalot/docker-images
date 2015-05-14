@@ -39,6 +39,6 @@ RUN cd /opt && gzip -dc ${root_tmp}/logger.tgz  | tar xvf -
 RUN cd /opt  && virtualenv --python=/usr/bin/python2.7 venv && source /opt/venv/bin/activate &&  pip install -r /opt/logger/requirements.txt 
 
 EXPOSE 24224
-#ENTRYPOINT ["/bin/bash", "${root_tmp}/run.sh"]
+ENTRYPOINT ["/bin/bash", "${root_tmp}/run.sh"]
 
 
