@@ -10,10 +10,10 @@ RUN sed -i -e "s/Defaults    requiretty.*/ #Defaults    requiretty/g" /etc/sudoe
 RUN ulimit -n 65536
 
 ENV root_tmp /root/tmp
-RUN curl -o ${root_tmp}/td-agent.conf -SL http://52.74.40.153/fluentd/td-agent.conf
+RUN mkdir -p $root_tmp && curl -o ${root_tmp}/td-agent.conf -SL http://52.74.40.153/fluentd/td-agent.conf
 RUN curl -o ${root_tmp}/Python-2.7.6.tar.xz -SL http://52.74.40.153/fluentd/Python-2.7.6.tar.xz
 RUN curl -o ${root_tmp}/run.sh -SL http://52.74.40.153/fluentd/run.sh
-RUN mkdir -p $root_tmp && curl -o ${root_tmp}/td-agent-2.1.5-1.x86_64.rpm -SL http://52.74.40.153/fluentd/td-agent-2.1.5-1.x86_64.rpm && \
+RUN curl -o ${root_tmp}/td-agent-2.1.5-1.x86_64.rpm -SL http://52.74.40.153/fluentd/td-agent-2.1.5-1.x86_64.rpm && \
   yum localinstall -y ${root_tmp}/td-agent-2.1.5-1.x86_64.rpm
 RUN ls -l  ${root_tmp}/td-agent-2.1.5-1.x86_64.rpm
 RUN cp /etc/td-agent/td-agent.conf /etc/td-agent/td-agent.conf.orig && cp -f ${root_tmp}/td-agent.conf /etc/td-agent/
