@@ -23,5 +23,5 @@ EXPOSE 9200
 EXPOSE 9300
 EXPOSE 5601
 
-#ENTRYPOINT ["/bin/bash", "/root/tmp/run.sh"]
+ENTRYPOINT ["/bin/bash", "/root/tmp/run.sh"]
 
