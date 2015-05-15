@@ -18,8 +18,10 @@ RUN ulimit -n 65536
 RUN cp ${root_tmp}/elasticsearch.sysconfig /etc/sysconfig/elasticsearch && cp -f ${root_tmp}/elasticsearch.yml  /etc/elastichsearch/elasticsearch.yml
 RUN /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
 RUN /sbin/sysctl -w vm.swappiness=0
+
 EXPOSE 9200
 EXPOSE 9300
 EXPOSE 5601
+
 ENTRYPOINT ["/bin/bash", "/root/tmp/run.sh"]
 
