@@ -16,7 +16,7 @@ RUN yum install -y which sudo tar gcc libcurl-devel java-1.7.0-openjdk java-1.7.
 RUN sed -i -e "s/Defaults    requiretty.*/ #Defaults    requiretty/g" /etc/sudoers
 RUN ulimit -n 65536
 RUN cp ${root_tmp}/elasticsearch.sysconfig /etc/sysconfig/elasticsearch && cp -f ${root_tmp}/elasticsearch.yml  /etc/elasticsearch/elasticsearch.yml
-#RUN /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
+RUN PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
 #RUN /sbin/sysctl -w 'vm.swappiness=1'
 
 EXPOSE 9200
