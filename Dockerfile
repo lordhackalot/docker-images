@@ -17,7 +17,7 @@ RUN sed -i -e "s/Defaults    requiretty.*/ #Defaults    requiretty/g" /etc/sudoe
 RUN ulimit -n 65536
 RUN cp ${root_tmp}/elasticsearch.sysconfig /etc/sysconfig/elasticsearch && cp -f ${root_tmp}/elasticsearch.yml  /etc/elasticsearch/elasticsearch.yml
 #RUN /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
-RUN /sbin/sysctl -w vm.swappiness=0
+RUN /sbin/sysctl -w 'vm.swappiness=1'
 
 EXPOSE 9200
 EXPOSE 9300
