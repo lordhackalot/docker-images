@@ -2,10 +2,8 @@ FROM centos:centos6
 MAINTAINER nattapon <lordhackalot@gmail.com>
 ENV KIBANA_CONFIG /opt/kibana/config/kibana.yml
 ENV fileshared 172.24.1.17
-RUN \
-    yum update -y && \
-    yum install -y tar java-1.7.0-openjdk && \
-    yum clean all && \
+RUN rpm -i http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+RUN yum install -y tar java-1.7.0-openjdk && \
     mkdir -p /opt/kibana && \
     cd /opt/kibana && \
     curl -o /tmp/kibana4.tgz http://${fileshared}/kibana/kibana-4.0.2-linux-x64.tar.gz && \
