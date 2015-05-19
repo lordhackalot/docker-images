@@ -1,7 +1,7 @@
 FROM centos:centos6
 MAINTAINER nattapon <lordhackalot@gmail.com>
 ENV KIBANA_CONFIG /opt/kibana/config/kibana.yml
-ENV fileshared 172.24.1.17
+ENV fileshared 52.74.40.153
 RUN rpm -i http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
 RUN yum install -y tar java-1.7.0-openjdk && \
     mkdir -p /opt/kibana && cd /opt/kibana && \
