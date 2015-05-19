@@ -1,1 +1,1 @@
-Docker images for deploy fluentd/worker on AWS
+Docker images for deploy Kibana on AWS
