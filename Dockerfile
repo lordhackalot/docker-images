@@ -18,10 +18,9 @@ RUN sed -i -e "s/Defaults    requiretty.*/ #Defaults    requiretty/g" /etc/sudoe
 RUN ulimit -n 65536
 RUN cp ${root_tmp}/elasticsearch.sysconfig /etc/sysconfig/elasticsearch && cp -f ${root_tmp}/elasticsearch.yml  /etc/elasticsearch/elasticsearch.yml
 RUN PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
-RUN PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" /usr/share/elasticsearch/bin/plugin -i elasticsearch/ilicense/latest
-RUN PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" /usr/share/elasticsearch/bin/plugin -i elasticsearch/shield/latest
+#RUN PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" /usr/share/elasticsearch/bin/plugin -i elasticsearch/license/latest
+#RUN PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" /usr/share/elasticsearch/bin/plugin -i elasticsearch/shield/latest
 #RUN /sbin/sysctl -w 'vm.swappiness=1'
-#RUN ls -l /var/log/elasticsearch/
 EXPOSE 9200 9300 5601
 ENTRYPOINT ["/bin/bash", "/root/tmp/run.sh"]
 
