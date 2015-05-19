@@ -19,9 +19,6 @@ RUN cp ${root_tmp}/elasticsearch.sysconfig /etc/sysconfig/elasticsearch && cp -f
 RUN PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
 #RUN /sbin/sysctl -w 'vm.swappiness=1'
 #RUN ls -l /var/log/elasticsearch/
-EXPOSE 9200
-EXPOSE 9300
-EXPOSE 5601
-
+EXPOSE 9200 9300 5601
 ENTRYPOINT ["/bin/bash", "/root/tmp/run.sh"]
 
