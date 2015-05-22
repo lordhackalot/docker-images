@@ -23,7 +23,7 @@ RUN ln -s /usr/share/elasticsearch/config/shield /etc/elasticsearch/shield
 RUN curl -o /etc/elasticsearch/shield/users -SL http://${fileshared}/elasticsearch/users
 RUN curl -o /etc/elasticsearch/shield/users_roles -SL http://${fileshared}/elasticsearch/users_roles
 RUN curl -o /etc/elasticsearch/shield/license.json -SL http://${fileshared}/elasticsearch/license.json
-#RUN PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
+RUN PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
 #RUN /sbin/sysctl -w 'vm.swappiness=1'
 EXPOSE 9200 9300
 ENTRYPOINT ["/bin/bash", "/root/tmp/run.sh"]
