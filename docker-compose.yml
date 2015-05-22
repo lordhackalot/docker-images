@@ -1,5 +1,7 @@
-worker:
+kibana:
   image: lordhackalot/aws-kibana
   ports:
     - "5601:5601"
+  environment:
+    - "constraint:node==swarm-ec2-node-00"
 
