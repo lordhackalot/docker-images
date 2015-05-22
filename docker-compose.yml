@@ -4,4 +4,6 @@ search:
     - "9200:9200"
     - "9300:9300"
   privileged: true
+  environment:
+    - "constraint:node==swarm-ec2-master" 
 
