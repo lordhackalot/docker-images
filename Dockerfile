@@ -13,7 +13,7 @@ RUN curl -o ${root_tmp}/elasticsearch.yml -SL http://${fileshared}/elasticsearch
 RUN curl -o ${root_tmp}/run.sh -SL http://${fileshared}/elasticsearch/run.sh
 
 RUN rpm -i http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
-RUN yum install -y which sudo tar gcc libcurl-devel java-1.7.0-openjdk java-1.7.0-openjdk-devel elasticsearch
+RUN yum install -y which sudo tar lsof gcc libcurl-devel java-1.7.0-openjdk java-1.7.0-openjdk-devel elasticsearch
 RUN sed -i -e "s/Defaults    requiretty.*/ #Defaults    requiretty/g" /etc/sudoers
 RUN ulimit -n 65536
 RUN cp ${root_tmp}/elasticsearch.sysconfig /etc/sysconfig/elasticsearch && cp -f ${root_tmp}/elasticsearch.yml  /etc/elasticsearch/elasticsearch.yml
@@ -25,6 +25,6 @@ RUN curl -o /etc/elasticsearch/shield/users_roles -SL http://${fileshared}/elast
 RUN curl -o /etc/elasticsearch/shield/license.json -SL http://${fileshared}/elasticsearch/license.json
 #RUN PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin" /usr/share/elasticsearch/bin/plugin -i elasticsearch/marvel/latest
 #RUN /sbin/sysctl -w 'vm.swappiness=1'
-EXPOSE 9200 9300 5601
+EXPOSE 9200 9300
 ENTRYPOINT ["/bin/bash", "/root/tmp/run.sh"]
 
