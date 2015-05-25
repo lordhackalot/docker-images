@@ -3,4 +3,6 @@ worker:
   ports:
     - "24224:24224"
     - "8888:8888"
+  environment:
+    - "constraint:node==swarm-ec2-node-01"
 
