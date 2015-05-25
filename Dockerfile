@@ -39,6 +39,7 @@ RUN curl -o ${root_tmp}/requirements.txt -sSL http://${fileshared}/python/requir
 RUN curl -o ${root_tmp}/logger.tgz -sSL http://${fileshared}/python/logger.tgz
 RUN cd /opt && gzip -dc ${root_tmp}/logger.tgz  | tar xvf -
 RUN cd /opt  && virtualenv --python=/usr/bin/python2.7 venv && source /opt/venv/bin/activate &&  pip install -r /opt/logger/requirements.txt 
+echo "0"
 
 EXPOSE 8888 24224
 ENTRYPOINT ["/bin/bash", "/root/tmp/run.sh"]
