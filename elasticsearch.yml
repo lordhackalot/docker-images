@@ -37,7 +37,7 @@ cluster.name: docker-data-pipline
 # Node names are generated dynamically on startup, so you're relieved
 # from configuring them manually. You can tie this node to a specific name:
 #
-node.name: "docker-ek01"
+node.name: "[[ELASTICNODE]]"
 
 #node.local: true
 

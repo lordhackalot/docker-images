@@ -1,4 +1,4 @@
-search:
+search01:
   image: lordhackalot/aws-elasticsearch
   ports:
     - "9200:9200"
@@ -6,4 +6,24 @@ search:
   privileged: true
   environment:
     - "constraint:node==swarm-ec2-master" 
-
+    - ELASTICNODE=aws-search01
+    
+search02:
+  image: lordhackalot/aws-elasticsearch
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  privileged: true
+  environment:
+    - "constraint:node==swarm-ec2-master" 
+    - ELASTICNODE=aws-search02
+    
+search03:
+  image: lordhackalot/aws-elasticsearch
+  ports:
+    - "9200:9200"
+    - "9300:9300"
+  privileged: true
+  environment:
+    - "constraint:node==swarm-ec2-master" 
+    - ELASTICNODE=aws-search03
