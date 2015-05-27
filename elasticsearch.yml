@@ -389,7 +389,8 @@ bootstrap.mlockall: true
 #
 #http.jsonp.enable: true
 marvel.agent.exporter.es.hosts: [ "http://marvelui:secret@localhost:9200"]
-
+network.publish_host:  [[INST_ADDR]]
+discovery.zen.ping.unicast.hosts:  ["[[INST_ADDR01]]", "[[INST_ADDR02]]","[[INST_ADDR03]]"]
 
 
 
