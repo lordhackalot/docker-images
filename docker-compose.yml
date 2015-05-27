@@ -7,6 +7,10 @@ search01:
   environment:
     - "constraint:node==swarm-ec2-master" 
     - ELASTICNODE=aws-search01
+    - INST_ADDR=172.24.4.196
+    - INST_ADDR01=172.24.4.196
+    - INST_ADDR02=172.24.4.217
+    - INST_ADDR03=172.24.4.199
     
 search02:
   image: lordhackalot/aws-elasticsearch
@@ -17,6 +21,10 @@ search02:
   environment:
     - "constraint:node==swarm-ec2-node-00" 
     - ELASTICNODE=aws-search02
+    - INST_ADDR=172.24.4.217
+    - INST_ADDR01=172.24.4.196
+    - INST_ADDR02=172.24.4.217
+    - INST_ADDR03=172.24.4.199
     
 search03:
   image: lordhackalot/aws-elasticsearch
@@ -27,3 +35,8 @@ search03:
   environment:
     - "constraint:node==swarm-ec2-node-01" 
     - ELASTICNODE=aws-search03
+    - INST_ADDR=172.24.4.199
+    - INST_ADDR01=172.24.4.196
+    - INST_ADDR02=172.24.4.217
+    - INST_ADDR03=172.24.4.199
+ 
