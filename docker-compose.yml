@@ -15,7 +15,7 @@ search02:
     - "9300:9300"
   privileged: true
   environment:
-    - "constraint:node==swarm-ec2-master" 
+    - "constraint:node==swarm-ec2-node-00" 
     - ELASTICNODE=aws-search02
     
 search03:
@@ -25,5 +25,5 @@ search03:
     - "9300:9300"
   privileged: true
   environment:
-    - "constraint:node==swarm-ec2-master" 
+    - "constraint:node==swarm-ec2-node-01" 
     - ELASTICNODE=aws-search03
