@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
+echo "${ELASTICNODE01}" >  /result.txt
+sed -i -e 's/\[\[NODENAME\]\]/'"${ELASTIC_NODE01}"'/g' /someconfig.txt
 export PATH="/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin"
 /sbin/service elasticsearch start
 while true; do
