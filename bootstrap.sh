@@ -4,6 +4,7 @@ set -u
 # User params
 KIBANA_USER_PARAMS=$@
 KIBANA_CONFIG=${KIBANA_CONFIG:="/opt/kibana/config/kibana.yml"}
+sed -i -e 's/\[\[ELASTICNODE\]\]/'"${ELASTICNODE}"'/g' /opt/kibana/config/kibana.yml
 
 # Internal params
 KIBANA_CMD="/opt/kibana/bin/kibana ${KIBANA_USER_PARAMS}"

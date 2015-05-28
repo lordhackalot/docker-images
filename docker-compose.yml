@@ -4,4 +4,5 @@ kibana:
     - "5601:5601"
   environment:
     - "constraint:node==swarm-ec2-node-00"
+    - ELASTICNODE=172.24.4.196
 
